@@ -5,27 +5,15 @@ Om filen inte finns används en tom lista, så att programmet fortfarande kan
 starta utan att krascha.
 """
 
-import json  # Används för att läsa JSON-data från servers.json.
 import os # Används för att läsa miljövariabler, om det behövs.
 from pathlib import Path  # Ger ett plattformsoberoende sätt att hantera filsökvägar.
+from storage import load_servers  # Importerar funktioner för att läsa och skriva JSON-data.
 
 # Sökvägen till JSON-filen som innehåller serverinformationen.
 # Sökvägen är relativ till den katalog där programmet körs.
 data_file = Path(os.getenv("INVENTORY_DATAFILE", "servers.json"))
 
-# Kontrollera om JSON-filen finns innan vi försöker öppna den.
-if data_file.exists():
-    # Öppna filen i läsläge ("r" = read) och stäng den automatiskt
-    # när blocket är färdigt tack vare ``with``.
-    with open(data_file, "r") as file:
-        # Konvertera JSON-innehållet till Python-objekt.
-        # Här förväntas innehållet vara en lista med server-ordböcker, till exempel:
-        # [{"name": "web-01", "environment": "Production", "status": "Online"}]
-        servers = json.load(file)
-else:
-    # Om filen saknas finns det inga servrar att visa.
-    # En tom lista gör att programmet kan fortsätta utan fel.
-    servers = []
+servers = load_servers(data_file)
 
 
 def display_servers(servers):
