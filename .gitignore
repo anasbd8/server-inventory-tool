@@ -28,6 +28,9 @@ dist/
 .agents/
 .aws/
 
+# Lokal arbetschecklista, ingår inte i inlämningen
+/CHECKLISTA.md
+
 # Lokala miljövariabler (exempelmallar får versionshanteras)
 .env
 .env.*

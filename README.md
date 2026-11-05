@@ -2,7 +2,7 @@
 
 Ett kommandoradsprogram i Python för att hålla ordning på servrar: namn, adress, miljö, roll, status och senaste kontroll.
 
-> **Status:** Programmet kan i dag bara läsa datafilen och visa servrarna i en tabell. Meny, kontroller, CSV-export och CLI-argument är planerade men inte byggda. Se [CHECKLISTA.md](./CHECKLISTA.md).
+> **Status:** Programmet kan i dag bara läsa datafilen och visa servrarna i en tabell. Meny, kontroller, CSV-export och CLI-argument är planerade men inte byggda.
 
 ## Körkrav
 
@@ -56,7 +56,6 @@ Om filen saknas startar programmet med en tom lista och visar bara rubrikraden.
 | --- | --- |
 | `main.py` | Läser datafilen och visar servrarna. |
 | `servers.json` | Startdata. |
-| `CHECKLISTA.md` | Uppgiftens krav och vad som återstår. |
 | `REDOGORELSE.md` | Redogörelse för G-kraven. |
 | `REFLEKTION.md` | Reflektion för VG-kraven. |
 
