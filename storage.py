@@ -1,23 +1,25 @@
+"""Functions for loading and saving server data as JSON."""
+
 import json
 
+
 def load_servers(data_file):
-    # Kontrollera om JSON-filen finns innan vi försöker öppna den.
+    """Load the server list, or return an empty list if the file is missing."""
+    # Check whether the JSON file exists before trying to open it.
     if data_file.exists():
-        # Öppna filen i läsläge ("r" = read) och stäng den automatiskt
-        # när blocket är färdigt tack vare ``with``.
+        # Open the file for reading. with closes it when the block ends.
         with open(data_file, "r") as file:
-            # Konvertera JSON-innehållet till Python-objekt.
-            # Här förväntas innehållet vara en lista med server-ordböcker, till exempel:
-            # [{"name": "web-01", "environment": "Production", "status": "Online"}]
+            # Convert JSON into Python objects: a list of server dictionaries.
+            # Example fields: {"name": "web01", "environment": "prod", "status": "unknown"}
             servers = json.load(file)
     else:
-        # Om filen saknas finns det inga servrar att visa.
-        # En tom lista gör att programmet kan fortsätta utan fel.
+        # An empty list lets the program start even when the file is missing.
         servers = []
-        # Returnera [] om filen saknas.
     return servers
 
+
 def save_servers(servers, data_file):
-    # Spara serverlistan som JSON.
+    """Save the server list to the selected JSON file."""
+    # Opening with "w" replaces the previous file contents.
     with open(data_file, "w") as file:
         json.dump(servers, file)

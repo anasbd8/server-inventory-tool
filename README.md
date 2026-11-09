@@ -2,7 +2,7 @@
 
 Ett kommandoradsprogram i Python för att hålla ordning på servrar: namn, adress, miljö, roll, status och senaste kontroll.
 
-> **Status:** Programmet kan i dag bara läsa datafilen och visa servrarna i en tabell. Meny, kontroller, CSV-export och CLI-argument är planerade men inte byggda.
+> **Status:** Programmet läser datafilen och visar en textmeny med alternativen visa alla servrar och avsluta. Serverhantering, kontroller, CSV-export och CLI-argument är planerade men inte byggda.
 
 ## Körkrav
 
@@ -17,7 +17,9 @@ Kör från projektkatalogen, eftersom standardsökvägen till datafilen är rela
 python3 main.py
 ```
 
-Programmet skriver ut alla servrar i kolumner:
+Välj `1` för att visa alla servrar i kolumner eller `0` för att avsluta. Menyn visas igen efter listning eller ett ogiltigt val.
+
+Serverlistan visas så här:
 
 ```text
 Name           Environment    Status
@@ -35,7 +37,7 @@ dev01          dev            unknown
 INVENTORY_DATAFILE=annan_fil.json python3 main.py
 ```
 
-Om filen saknas startar programmet med en tom lista och visar bara rubrikraden.
+Om filen saknas startar programmet med en tom lista. Vid listning visas då bara rubrikraden.
 
 ## Datafil
 
@@ -54,14 +56,16 @@ Om filen saknas startar programmet med en tom lista och visar bara rubrikraden.
 
 | Fil | Ansvar |
 | --- | --- |
-| `main.py` | Läser datafilen och visar servrarna. |
+| `main.py` | Startpunkt som läser datafilen och startar menyn. |
+| `menu.py` | Menyloop och visning av servrar. |
+| `storage.py` | Funktioner för att läsa och spara JSON. |
 | `servers.json` | Startdata. |
 | `REDOGORELSE.md` | Redogörelse för G-kraven. |
 | `REFLEKTION.md` | Reflektion för VG-kraven. |
 
 ## Planerat, inte byggt
 
-Följande anrop fungerar **inte** ännu. Argumenten läses inte, så alla anrop visar i dag bara tabellen.
+Följande anrop fungerar **inte** ännu. Argumenten läses inte, så alla anrop startar i dag textmenyn.
 
 | Anrop | Tänkt beteende |
 | --- | --- |
