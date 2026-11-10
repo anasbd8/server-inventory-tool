@@ -2,6 +2,7 @@
 
 # Import the functions that save the server list.
 from storage import save_servers
+from checks import check_server
 
 def display_servers(servers):
     """Display server names, environments and statuses in aligned columns."""
@@ -98,6 +99,28 @@ def display_servers_by_environment(servers):
     display_servers(filtered_servers)
 
 
+def check_server_by_name(servers, data_file):
+    """Fråga efter ett servernamn och visa resultatet av kontrollen."""
+    name = input("Enter server name to check: ").strip()
+
+    # Leta efter namnet utan att skilja på stora och små bokstäver.
+    for server in servers:
+        if server["name"].casefold() == name.casefold():
+            try:
+                # Kontrollfunktionen uppdaterar status, tid och JSON-filen.
+                check_server(server, servers, data_file)
+            except OSError as error:
+                # Visa fel om ping inte kan köras eller resultatet inte kan sparas.
+                print(f"Could not complete or save the check: {error}")
+                return
+
+            print(f"{server['name']}: {server['status']} ({server['last_checked']})")
+            return
+
+    # Om loopen inte hittade en matchning finns namnet inte i listan.
+    print(f"No server named {name} was found.")
+
+
 def run_menu(servers, data_file):
     """Repeat the menu until the user chooses to exit."""
     # The loop continues until break stops it.
@@ -122,6 +145,9 @@ def run_menu(servers, data_file):
             add_server(servers, data_file)
         elif choice == "3":
             remove_server(servers, data_file)
+        elif choice == "4":
+            # Kontrollera en namngiven server och återgå sedan till menyn.
+            check_server_by_name(servers, data_file)
         elif choice == "7":
             display_servers_by_environment(servers)
         elif choice == "0":
