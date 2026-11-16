@@ -1,8 +1,8 @@
 """Text menu and server display functions."""
 
-# Import the functions that save the server list.
-from storage import save_servers
-from checks import check_server
+# Import the storage and check functions that the menu uses.
+from storage import save_servers, export_servers
+from checks import check_server, check_all_servers
 
 def display_servers(servers):
     """Display server names, environments and statuses in aligned columns."""
@@ -88,36 +88,35 @@ def display_servers_by_environment(servers):
 
         print("Invalid environment. Choose dev, test or prod.")
 
-    # Collect servers that belong to the selected environment.
+    # Collect the servers that belong to the selected environment.
     filtered_servers = []
-    #add the servers that match the selected environment to the empty list
     for server in servers:
         if server["environment"] == environment:
             filtered_servers.append(server)
 
-        # Reuse the existing table display function.
+    # Reuse the existing table display function.
     display_servers(filtered_servers)
 
 
 def check_server_by_name(servers, data_file):
-    """Fråga efter ett servernamn och visa resultatet av kontrollen."""
+    """Ask for a server name and display the check result."""
     name = input("Enter server name to check: ").strip()
 
-    # Leta efter namnet utan att skilja på stora och små bokstäver.
+    # Find the server name without distinguishing uppercase and lowercase.
     for server in servers:
         if server["name"].casefold() == name.casefold():
             try:
-                # Kontrollfunktionen uppdaterar status, tid och JSON-filen.
+                # The check function updates the status, timestamp and JSON file.
                 check_server(server, servers, data_file)
             except OSError as error:
-                # Visa fel om ping inte kan köras eller resultatet inte kan sparas.
+                # Report an error if ping cannot run or the result cannot be saved.
                 print(f"Could not complete or save the check: {error}")
                 return
 
             print(f"{server['name']}: {server['status']} ({server['last_checked']})")
             return
 
-    # Om loopen inte hittade en matchning finns namnet inte i listan.
+    # If the loop found no match, the name is not in the list.
     print(f"No server named {name} was found.")
 
 
@@ -137,7 +136,7 @@ def run_menu(servers, data_file):
         # input returns a string. strip removes leading and trailing whitespace.
         choice = input("Choose an option: ").strip()
 
-        # Compare with "1" and "0" because the user's input is text.
+        # Compare with strings such as "1" because the user's input is text.
         if choice == "1":
             # Pass the server list to the function that displays the table.
             display_servers(servers)
@@ -146,8 +145,17 @@ def run_menu(servers, data_file):
         elif choice == "3":
             remove_server(servers, data_file)
         elif choice == "4":
-            # Kontrollera en namngiven server och återgå sedan till menyn.
+            # Check a named server and then return to the menu.
             check_server_by_name(servers, data_file)
+        elif choice == "5":
+            # Check all servers and display their updated statuses.
+            check_all_servers(servers, data_file)
+            display_servers(servers)
+        elif choice == "6":
+            # Run the export and store the returned file path.
+            report_file = export_servers(servers)
+            # Display where the report was saved.
+            print(f"Report saved to: {report_file}")
         elif choice == "7":
             display_servers_by_environment(servers)
         elif choice == "0":

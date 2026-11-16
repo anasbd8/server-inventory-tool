@@ -1,31 +1,33 @@
 # Redogörelse – Server Inventory Tool
 
-<!-- Mall: besvara varje del med egna ord och hänvisa till fil och funktion i varje svar. -->
+<!-- Mall: fyll i svaren med egna ord. G20 är inte klart förrän alla sju delar har besvarats. -->
 
-## Tre konstruktioner
+Skriv svaren på svenska. För varje del ska du beskriva både hur och varför, med hänvisning till en fil och en funktion i projektet. Behåll kodens engelska namn när du hänvisar till den.
 
-Förklara syntax och funktion för tre olika konstruktioner, exempelvis villkor, loop och funktion med parametrar och `return`.
+## 1. Tre konstruktioner i Python
 
-## Datastruktur
+Välj tre exempel ur din kod, till exempel ett villkor, en loop och en funktion som tar emot parametrar och returnerar ett värde. Beskriv hur varje konstruktion skrivs och vad den gör i programmet.
 
-Motivera listan med dictionaries och beskriv servervärdenas datatyper.
+## 2. Datastruktur och datatyper
 
-## JSON och CSV
+Förklara varför du använder en lista med dictionaries för servrarna. Beskriv också datatyperna för värdena i en serverpost.
 
-Motivera JSON för lagring och CSV för rapporter.
+## 3. JSON och CSV
 
-## Modulindelning
+Förklara varför JSON används för att spara serverdatan och varför CSV passar för rapporterna.
 
-Förklara modulindelningen och varje fils ansvar.
+## 4. Moduler och funktioner
 
-## Standardbiblioteket
+Beskriv ansvarsfördelningen mellan projektets filer och hur funktionerna samarbetar. Förklara hur meny och CLI återanvänder samma funktioner.
 
-Beskriv använda standardbiblioteksmoduler och deras användning.
+## 5. Standardbiblioteket
 
-## God praxis
+Vilka moduler från Pythons standardbibliotek används? Beskriv deras uppgifter och ge konkreta exempel från koden.
 
-Ge och motivera tre exempel på god praxis från koden.
+## 6. God praxis
 
-## Källor och hjälpmedel
+Välj tre arbetssätt i din kod som du tycker är bra. Förklara vad de innebär och vilken nytta de gör i just ditt program.
 
-Redovisa källor och hjälpmedel, inklusive eventuell AI, och vad de användes till.
+## 7. Källor och hjälpmedel
+
+Beskriv vilka källor och verktyg du har använt, inklusive AI-hjälp, och vilka delar av arbetet de hjälpte dig med. Förklara även hur du använde och kontrollerade hjälpen i din egen kod.

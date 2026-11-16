@@ -1,25 +1,25 @@
-# Reflektion – Server Inventory Tool
+# Reflection – Server Inventory Tool
 
-<!-- Mall: skriv med egna ord, hänvisa till konkreta kodställen och värdera varför lösningarna är lämpliga. Riktmärke: två till tre sidor. -->
+<!-- Template: write in your own words, refer to specific code locations and evaluate why the solutions are appropriate. Target length: two to three pages. -->
 
-## Valda fördjupningar
+## Selected extensions
 
-Motivera minst två genomförda fördjupningar. Beskriv dem också i `README.md`.
+Justify at least two completed extensions. Describe them in `README.md` as well.
 
-## Värdering av egna val
+## Evaluation of design choices
 
-Värdera minst fyra egna val. Minst två ska komma från uppgiftens lista: datastruktur, spara efter varje ändring, modulindelning, miljövariabel, `subprocess` och externa kommandon, kommando som lista eller meny tillsammans med CLI.
+Evaluate at least four of your own choices. At least two must come from the assignment's list: data structure, saving after every change, module structure, environment variable, subprocess and external commands, passing a command as a list, or offering both a menu and a CLI.
 
-Beskriv för varje val alternativ, motivering, för- och nackdelar samt vad ändrade förutsättningar skulle innebära.
+For each choice, describe alternatives, your reasoning, advantages and disadvantages, and the implications of changed conditions.
 
-### Val 1:
+### Choice 1:
 
-### Val 2:
+### Choice 2:
 
-### Val 3:
+### Choice 3:
 
-### Val 4:
+### Choice 4:
 
-## Förändrade förutsättningar
+## Changed conditions
 
-Resonera om förändringar för exempelvis 1 000 servrar eller nattlig automatisk körning i en pipeline.
+Discuss changes needed for scenarios such as 1,000 servers or automated nightly execution in a pipeline.

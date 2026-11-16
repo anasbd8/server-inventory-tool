@@ -1,4 +1,4 @@
-# Python: kompilerade filer och cache
+# Python: compiled files and caches
 __pycache__/
 *.py[cod]
 .pytest_cache/
@@ -6,13 +6,13 @@ __pycache__/
 .ruff_cache/
 .hypothesis/
 
-# Virtuella Python-miljöer
+# Python virtual environments
 .venv/
 venv/
 env/
 .env/
 
-# Genererade rapporter, testresultat och byggfiler
+# Generated reports, test results and build files
 rapporter/
 reports/
 .coverage
@@ -23,37 +23,37 @@ build/
 dist/
 *.egg-info/
 
-# Lokala agentinställningar och AWS-konfiguration
+# Local agent settings and AWS configuration
 .codex/
 .agents/
 .aws/
 
-# Lokal arbetschecklista, ingår inte i inlämningen
+# Local working checklist, excluded from the submission
 /CHECKLISTA.md
 
-# Lokala miljövariabler (exempelmallar får versionshanteras)
+# Local environment variables (example templates may be versioned)
 .env
 .env.*
 !.env.example
 !.env.sample
 
-# Lokala editorinställningar och temporära redigeringsfiler
+# Local editor settings and temporary editing files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Loggar och temporära filer
+# Logs and temporary files
 *.log
 *.tmp
 *.temp
 
-# Operativsystemets metadata
+# Operating system metadata
 .DS_Store
 ._*
 Thumbs.db
 Desktop.ini
 
-# Projektets .py-, .md- och JSON-filer ignoreras inte generellt.
-# Behåll exempelvis serverdata och eventuell config.json i versionshanteringen.
+# Project .py, .md and JSON files are not ignored by default.
+# Keep server data and any config.json in version control.
