@@ -23,7 +23,7 @@ build/
 dist/
 *.egg-info/
 
-# Local agent settings and AWS configuration
+# Local configuration
 .codex/
 .agents/
 .aws/
